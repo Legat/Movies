@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".DetailActivity"
         >
 
@@ -76,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lines="2"
-            android:textSize="40sp"
+            android:textSize="@dimen/extra_large_text"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
