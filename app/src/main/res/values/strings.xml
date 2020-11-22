@@ -9,6 +9,7 @@
     <string name="movie_genre">Action, Adventure, Fantasy</string>
     <string name="movie_reviews">125 REVIEWS</string>
     <string name="movie_cast">Cast</string>
+    <string name="movie_content_description">Avengers</string>
 
     <string name="movie_robert">Robert Downey Jr.</string> 
     <string name="movie_chris">Chris Evans</string>

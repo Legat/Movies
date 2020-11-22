@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/colorBackground"
             tools:context=".DetailActivity">
         <ImageView
@@ -18,6 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="centerCrop"
+                android:contentDescription="@string/movie_content_description"
                 android:background="@drawable/avengers_gradient"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +34,7 @@
                 android:textSize="@dimen/small_text"
                 android:textColor="@color/grey"
                 android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic__left_black_24dp"
+                android:drawableStart="@drawable/ic__left_black_24dp"
                 android:background="@android:color/transparent"
                 android:minHeight="21dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,10 +43,8 @@
 
         <TextView
                 android:id="@+id/age_limit"
-                android:layout_width="wrap_content"
-                android:layout_height="13dp"
+                style="@style/DetailMoviesText"
                 android:text="@string/movie_age"
-                android:textColor="@color/white"
                 android:textSize="@dimen/small_text"
                 android:layout_marginStart="16dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,12 +53,10 @@
 
         <TextView
                 android:id="@+id/name"
+                style="@style/DetailMoviesText"
                 android:text="@string/movie_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:lines="2"
                 android:textSize="@dimen/extra_large_text"
-                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -69,10 +66,8 @@
 
         <TextView
                 android:id="@+id/genre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/DetailMoviesText"
                 android:text="@string/movie_genre"
-                android:textSize="@dimen/medium_text"
                 android:textColor="@color/crimson"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/name"
@@ -97,10 +92,8 @@
                 app:layout_constraintHorizontal_bias="0.5"/>
         <TextView
                 android:id="@+id/reviews"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/DetailMoviesText"
                 android:text="@string/movie_reviews"
-                android:textSize="@dimen/medium_text"
                 android:textColor="@color/grey"
                 app:layout_constraintTop_toBottomOf="@+id/genre"
                 app:layout_constraintStart_toEndOf="@+id/ratingBar"
@@ -110,10 +103,8 @@
 
         <TextView
                 android:id="@+id/story"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/DetailMoviesText"
                 android:text="@string/movie_storyline"
-                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -122,10 +113,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/reviews"/>
         <TextView
                 android:id="@+id/description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/DetailMoviesText"
                 android:text="@string/movie_description"
-                android:textColor="@color/white"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -138,11 +127,8 @@
 
         <TextView
                 android:id="@+id/cast"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/DetailMoviesText"
                 android:text="@string/movie_cast"
-                android:textSize="@dimen/medium_text"
-                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -157,6 +143,7 @@
                 android:src="@drawable/ic_robert_downey"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/movie_robert"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toStartOf="@+id/Evans"
@@ -168,6 +155,7 @@
                 android:src="@drawable/ic_chris_evans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/movie_chris"
                 app:layout_constraintStart_toEndOf="@+id/Robert"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toStartOf="@+id/Ruffalo"
@@ -178,6 +166,7 @@
                 android:src="@drawable/ic_mark_ruffalo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/movie_mark"
                 app:layout_constraintStart_toEndOf="@+id/Evans"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toStartOf="@+id/Hemsworth"
@@ -187,6 +176,7 @@
                 android:src="@drawable/ic_chris_hemsworth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/movie_hems"
                 app:layout_constraintStart_toEndOf="@+id/Ruffalo"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -221,12 +211,9 @@
 
         <TextView
                 android:id="@+id/text_Mark"
+                style="@style/DetailMoviesText"
                 android:text="@string/movie_mark"
-                android:textSize="@dimen/medium_text"
-                android:textColor="@color/white"
-                android:layout_width="0dp"
                 app:layout_constraintHorizontal_weight="1"
-                android:layout_height="wrap_content"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintTop_toBottomOf="@+id/Ruffalo"
                 app:layout_constraintStart_toStartOf="@+id/Ruffalo"
@@ -234,11 +221,8 @@
 
         <TextView
                 android:id="@+id/text_Hemswoth"
+                style="@style/DetailMoviesText"
                 android:text="@string/movie_hems"
-                android:textSize="@dimen/medium_text"
-                android:textColor="@color/white"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toEndOf="@+id/Hemsworth"
