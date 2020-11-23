@@ -19,11 +19,19 @@
                 android:layout_height="250dp"
                 android:scaleType="centerCrop"
                 android:contentDescription="@string/movie_content_description"
-                android:background="@drawable/avengers_gradient"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"/>
+
+        <View
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@drawable/avengers_gradient"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="parent"/>
 
         <Button
                 android:id="@+id/back_btn"
@@ -140,47 +148,46 @@
 
         <ImageView
                 android:id="@+id/Robert"
+                style="@style/DetailMoviesImage"
                 android:src="@drawable/ic_robert_downey"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:contentDescription="@string/movie_robert"
+                app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toStartOf="@+id/Evans"
-                app:layout_constraintTop_toBottomOf="@+id/cast"/>
+                app:layout_constraintTop_toBottomOf="@+id/cast" android:layout_marginStart="16dp"/>
 
 
         <ImageView
                 android:id="@+id/Evans"
+                style="@style/DetailMoviesImage"
                 android:src="@drawable/ic_chris_evans"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:contentDescription="@string/movie_chris"
+                app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@+id/Robert"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toStartOf="@+id/Ruffalo"
-                app:layout_constraintTop_toBottomOf="@+id/cast"/>
+                app:layout_constraintTop_toBottomOf="@+id/cast" android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"/>
 
         <ImageView
                 android:id="@+id/Ruffalo"
+                style="@style/DetailMoviesImage"
                 android:src="@drawable/ic_mark_ruffalo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_weight="1"
                 android:contentDescription="@string/movie_mark"
                 app:layout_constraintStart_toEndOf="@+id/Evans"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toStartOf="@+id/Hemsworth"
-                app:layout_constraintTop_toBottomOf="@+id/cast"/>
+                app:layout_constraintTop_toBottomOf="@+id/cast"
+                android:layout_marginEnd="8dp"/>
         <ImageView
                 android:id="@+id/Hemsworth"
                 android:src="@drawable/ic_chris_hemsworth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/DetailMoviesImage"
+                app:layout_constraintHorizontal_weight="1"
                 android:contentDescription="@string/movie_hems"
                 app:layout_constraintStart_toEndOf="@+id/Ruffalo"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cast"/>
+                app:layout_constraintTop_toBottomOf="@+id/cast" android:layout_marginEnd="16dp"/>
 
         <TextView
                 android:id="@+id/textRobert"
@@ -192,7 +199,6 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@+id/Robert"
                 app:layout_constraintTop_toBottomOf="@+id/Robert"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toEndOf="@+id/Robert"/>
 
 
