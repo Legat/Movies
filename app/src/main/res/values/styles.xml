@@ -27,4 +27,11 @@
         <item name="android:adjustViewBounds">true</item>
     </style>
 
+    <style name="MovieToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+         <item name="theme">@style/Theme.MaterialComponents.Light.DarkActionBar</item>
+        <!--<item name="android:background">@color/colorPrimary</item>-->
+    </style>
+
 </resources>
