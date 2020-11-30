@@ -25,13 +25,12 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-
+    <!--<androidx.cardview.widget.CardView-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
             <!--app:cardCornerRadius="7dp"-->
             <!--app:cardElevation="5dp"-->
             <!--app:cardPreventCornerOverlap="false"-->
-           <!---->
             <!--android:id="@+id/cardView">-->
 
     <ImageView
@@ -57,9 +56,9 @@
             app:layout_constraintStart_toStartOf="@+id/movie_item"
             android:layout_marginStart="6dp"
             app:layout_constraintTop_toTopOf="@+id/movie_item"
-            android:layout_marginTop="12dp" android:id="@+id/textView3"/>
-    <!--<androidx.cardview.widget.CardView-->
-    <!--</androidx.cardview.widget.CardView>-->
+            android:layout_marginTop="12dp"
+            android:id="@+id/textView3"/>
+
 
     <ImageView
             android:src="@drawable/ic_like"
@@ -140,6 +139,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/view2"/>
+
+    <!--</androidx.cardview.widget.CardView>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
