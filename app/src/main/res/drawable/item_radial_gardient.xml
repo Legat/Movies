@@ -3,37 +3,17 @@
     <item >
         <shape android:shape="rectangle" >
             <gradient
-                    android:startColor="#636375"
-                    android:endColor="#3B3B4D"
+                    android:startColor="#404056"
+                    android:endColor=" #222232"
                     android:gradientRadius="50dp"
                     android:type="radial"/>
-            <size android:width="24dp"
-                  android:height="24dp"/>
+
+            <corners android:bottomRightRadius="8dp"
+                     android:bottomLeftRadius="8dp"/>
+
+            <stroke android:width="1dp"
+                    android:color="#636375"/>
+
         </shape>
-    </item>
-
-      <item
-            android:bottom="1dp"
-            android:left="1dp"
-            android:right="1dp"
-            >
-        <shape android:shape="rectangle" >
-            <gradient android:type="radial"
-            android:endColor="#222232"
-            android:startColor="#404056"
-            android:gradientRadius="0dp"/>
-
-            <corners android:bottomLeftRadius="8dp"
-            android:bottomRightRadius="8dp"/>
-        </shape>
-
     </item>
 </layer-list>
-<!--<shape xmlns:android="http://schemas.android.com/apk/res/android">-->
-    <!--<gradient android:type="radial" android:endColor="#222232"-->
-              <!--android:startColor="#404056"-->
-              <!--android:gradientRadius="0dp"/>-->
-
-    <!--<corners android:bottomLeftRadius="8dp"-->
-             <!--android:bottomRightRadius="8dp"/>-->
-<!--</shape>-->
