@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -27,12 +26,12 @@
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
+            android:id="@+id/cardMovie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="8dp"
             app:cardElevation="5dp"
             app:cardPreventCornerOverlap="false"
-            android:id="@+id/cardMovie"
             android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             android:layout_marginStart="14dp"
@@ -72,7 +71,8 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@+id/movie_item"
                     app:layout_constraintEnd_toEndOf="@+id/movie_item"
-                    android:layout_marginEnd="6dp" android:layout_marginTop="13dp"/>
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginTop="13dp"/>
 
             <RatingBar
                     android:id="@+id/movie_rating"
@@ -97,7 +97,8 @@
                     app:layout_constraintStart_toEndOf="@+id/movie_rating"
                     android:layout_marginStart="6dp"
                     app:layout_constraintBottom_toBottomOf="@+id/movie_rating"
-                    app:layout_constraintTop_toTopOf="@+id/movie_rating"/>
+                    app:layout_constraintTop_toTopOf="@+id/movie_rating"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                     android:id="@+id/genre"
@@ -110,7 +111,9 @@
                     android:layout_marginBottom="2dp"
                     app:layout_constraintBottom_toTopOf="@+id/movie_rating"
                     app:layout_constraintStart_toStartOf="@+id/movie_item"
-                    android:layout_marginStart="6dp"/>
+                    android:layout_marginStart="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"/>
 
             <TextView
                     style="@style/DetailMoviesText"
@@ -121,7 +124,10 @@
                     android:layout_marginTop="8dp"
                     app:layout_constraintTop_toBottomOf="@+id/movie_rating"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"/>
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"/>
 
             <TextView
                     style="@style/DetailMoviesText"
