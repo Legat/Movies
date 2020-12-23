@@ -55,7 +55,7 @@
         <TextView
                 android:id="@+id/age_limit"
                 style="@style/DetailMoviesText"
-                android:text="@string/movie_age"
+                tools:text="@string/movie_age"
                 android:textSize="@dimen/small_text"
                 android:background="@drawable/background_age_limit"
                 app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
         <TextView
                 android:id="@+id/name"
                 style="@style/DetailMoviesText"
-                android:text="@string/movie_name"
+                tools:text="@string/movie_name"
                 android:textSize="@dimen/extra_large_text"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
@@ -79,7 +79,7 @@
     <TextView
             android:id="@+id/genre"
             style="@style/DetailMoviesText"
-            android:text="@string/movie_genre"
+            tools:text="@string/movie_genre"
             android:textColor="@color/crimson"
             android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/name"
@@ -100,14 +100,14 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
             android:numStars="5"
-            android:rating="4"
+            tools:rating="4"
             app:layout_constraintEnd_toStartOf="@+id/reviews"
             app:layout_constraintHorizontal_bias="0.5"/>
 
     <TextView
             android:id="@+id/reviews"
             style="@style/DetailMoviesText"
-            android:text="@string/movie_reviews"
+            tools:text="@string/movie_reviews"
             android:textColor="@color/grey"
             app:layout_constraintTop_toBottomOf="@+id/genre"
             app:layout_constraintStart_toEndOf="@+id/ratingBar"
@@ -150,94 +150,108 @@
                 android:layout_marginTop="24dp"
                 app:layout_constraintTop_toBottomOf="@+id/description"
                 android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/Evans"/>
+                app:layout_constraintBottom_toTopOf="@+id/actors_list"/>
 
-        <ImageView
-                android:id="@+id/Evans"
-                style="@style/DetailMoviesImage"
-                android:src="@drawable/ic_chris_evans"
-                android:contentDescription="@string/movie_chris"
-                app:layout_constraintEnd_toEndOf="@id/Ruffalo"
-                app:layout_constraintStart_toEndOf="@+id/Robert"
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/actors_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/cast"
-                android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
-        <ImageView
-                android:id="@+id/Hemsworth"
-                style="@style/DetailMoviesImage"
-                android:src="@drawable/ic_chris_hemsworth"
-                android:contentDescription="@string/movie_hems"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/Ruffalo"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/cast"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="16dp"/>
-        <ImageView
-                android:id="@+id/Ruffalo"
-                style="@style/DetailMoviesImage"
-                android:src="@drawable/ic_mark_ruffalo"
-                android:contentDescription="@string/movie_mark"
-                app:layout_constraintStart_toEndOf="@+id/Evans"
-                app:layout_constraintEnd_toStartOf="@+id/Hemsworth"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/cast"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
-        <ImageView
-                android:id="@+id/Robert"
-                style="@style/DetailMoviesImage"
-                android:src="@drawable/ic_robert_downey"
-                android:contentDescription="@string/movie_robert"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="16dp"
-                app:layout_constraintEnd_toStartOf="@+id/Evans"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/cast"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                android:layout_marginEnd="4dp"/>
-        <TextView
-                android:id="@+id/textRobert"
-                style="@style/DetailMoviesText"
-                android:text="@string/movie_robert"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toStartOf="@+id/Robert"
-                app:layout_constraintTop_toBottomOf="@+id/Robert"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintEnd_toEndOf="@+id/Robert"/>
+                android:layout_marginStart="11dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="11dp"
+                >
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <!--<ImageView-->
+                <!--android:id="@+id/Evans"-->
+                <!--style="@style/DetailMoviesImage"-->
+                <!--android:src="@drawable/ic_chris_evans"-->
+                <!--android:contentDescription="@string/movie_chris"-->
+                <!--app:layout_constraintEnd_toEndOf="@id/Ruffalo"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/Robert"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/cast"-->
+                <!--android:layout_marginStart="4dp"-->
+                <!--android:layout_marginEnd="4dp"/>-->
+        <!--<ImageView-->
+                <!--android:id="@+id/Hemsworth"-->
+                <!--style="@style/DetailMoviesImage"-->
+                <!--android:src="@drawable/ic_chris_hemsworth"-->
+                <!--android:contentDescription="@string/movie_hems"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/Ruffalo"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/cast"-->
+                <!--android:layout_marginStart="4dp"-->
+                <!--android:layout_marginEnd="16dp"/>-->
+        <!--<ImageView-->
+                <!--android:id="@+id/Ruffalo"-->
+                <!--style="@style/DetailMoviesImage"-->
+                <!--android:src="@drawable/ic_mark_ruffalo"-->
+                <!--android:contentDescription="@string/movie_mark"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/Evans"-->
+                <!--app:layout_constraintEnd_toStartOf="@+id/Hemsworth"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/cast"-->
+                <!--app:layout_constraintHorizontal_chainStyle="spread"-->
+                <!--android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>-->
+        <!--<ImageView-->
+                <!--android:id="@+id/Robert"-->
+                <!--style="@style/DetailMoviesImage"-->
+                <!--android:src="@drawable/ic_robert_downey"-->
+                <!--android:contentDescription="@string/movie_robert"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--android:layout_marginStart="16dp"-->
+                <!--app:layout_constraintEnd_toStartOf="@+id/Evans"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/cast"-->
+                <!--app:layout_constraintHorizontal_chainStyle="spread"-->
+                <!--android:layout_marginEnd="4dp"/>-->
+        <!--<TextView-->
+                <!--android:id="@+id/textRobert"-->
+                <!--style="@style/DetailMoviesText"-->
+                <!--android:text="@string/movie_robert"-->
+                <!--app:layout_constraintHorizontal_weight="1"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/Robert"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/Robert"-->
+                <!--app:layout_constraintHorizontal_bias="0.5"-->
+                <!--app:layout_constraintEnd_toEndOf="@+id/Robert"/>-->
 
 
-        <TextView
-                android:id="@+id/text_Chris"
-                style="@style/DetailMoviesText"
-                android:text="@string/movie_chris"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintTop_toBottomOf="@+id/Evans"
-                app:layout_constraintStart_toStartOf="@+id/Evans"
-                app:layout_constraintEnd_toEndOf="@+id/Evans"/>
+        <!--<TextView-->
+                <!--android:id="@+id/text_Chris"-->
+                <!--style="@style/DetailMoviesText"-->
+                <!--android:text="@string/movie_chris"-->
+                <!--app:layout_constraintHorizontal_weight="1"-->
+                <!--app:layout_constraintHorizontal_bias="0.5"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/Evans"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/Evans"-->
+                <!--app:layout_constraintEnd_toEndOf="@+id/Evans"/>-->
 
-        <TextView
-                android:id="@+id/text_Mark"
-                style="@style/DetailMoviesText"
-                android:text="@string/movie_mark"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintTop_toBottomOf="@+id/Ruffalo"
-                app:layout_constraintStart_toStartOf="@+id/Ruffalo"
-                app:layout_constraintEnd_toEndOf="@+id/Ruffalo"/>
+        <!--<TextView-->
+                <!--android:id="@+id/text_Mark"-->
+                <!--style="@style/DetailMoviesText"-->
+                <!--android:text="@string/movie_mark"-->
+                <!--app:layout_constraintHorizontal_weight="1"-->
+                <!--app:layout_constraintHorizontal_bias="0.5"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/Ruffalo"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/Ruffalo"-->
+                <!--app:layout_constraintEnd_toEndOf="@+id/Ruffalo"/>-->
 
-        <TextView
-                android:id="@+id/text_Hemswoth"
-                style="@style/DetailMoviesText"
-                android:text="@string/movie_hems"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintHorizontal_bias="0.5"
-                android:layout_marginBottom="55dp"
-                app:layout_constraintEnd_toEndOf="@+id/Hemsworth"
-                app:layout_constraintTop_toBottomOf="@+id/Hemsworth"
-                app:layout_constraintStart_toStartOf="@+id/Hemsworth"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+        <!--<TextView-->
+                <!--android:id="@+id/text_Hemswoth"-->
+                <!--style="@style/DetailMoviesText"-->
+                <!--android:text="@string/movie_hems"-->
+                <!--app:layout_constraintHorizontal_weight="1"-->
+                <!--app:layout_constraintHorizontal_bias="0.5"-->
+                <!--android:layout_marginBottom="55dp"-->
+                <!--app:layout_constraintEnd_toEndOf="@+id/Hemsworth"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/Hemsworth"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/Hemsworth"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

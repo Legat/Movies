@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp">
+
+    <ImageView
+            android:id="@+id/image_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/ic_chris_evans"
+            android:contentDescription="@string/movie_chris"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+    />
+
+    <TextView
+            android:id="@+id/actor_text"
+            style="@style/DetailMoviesText"
+            tools:text="@string/movie_chris"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/image_item"
+            app:layout_constraintStart_toStartOf="@+id/image_item"
+            app:layout_constraintEnd_toEndOf="@+id/image_item"
+            />
+
+</androidx.constraintlayout.widget.ConstraintLayout  >
