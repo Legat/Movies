@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.android.academy.movies.Models.Movie
 import ru.android.academy.movies.R
 
-class MovieAdapter : RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
 
     private var movies = listOf<Movie>()
 
@@ -33,48 +33,47 @@ class MovieAdapter : RecyclerView.Adapter<MovieViewHolder>() {
         )
     }
 
-    override fun getItemCount(): Int =
-        movies.size
+    override fun getItemCount(): Int = movies.size
 
 
-    fun setData(newmovies:List<Movie>){
+    fun setData(newmovies: List<Movie>){
         movies = newmovies
         notifyDataSetChanged()
     }
 
-    fun setItemListener(onClickListener:OnClickItemListener){
+    fun setItemListener(onClickListener: OnClickItemListener){
         onClickItemListener = onClickListener
     }
 }
 
-class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view){
+class MovieViewHolder(view: View): RecyclerView.ViewHolder(view){
 
-    private val movieImage:ImageView? = view.findViewById(R.id.movie_image)
-    private val movieAge:TextView? = view.findViewById(R.id.movie_age)
-    private val movieRating:RatingBar? = view.findViewById(R.id.movie_rating)
-    private val movieReview:TextView? = view.findViewById(R.id.review)
-    private val movieGenre:TextView? = view.findViewById(R.id.genre)
-    private val movieName:TextView? = view.findViewById(R.id.movie_name)
-    private val movieDuration:TextView? = view.findViewById(R.id.movie_min)
-    private val movieFavorites:ImageView? = view.findViewById(R.id.movie_favorites)
+    private val movieImage:ImageView = view.findViewById(R.id.movie_image)
+    private val movieAge:TextView = view.findViewById(R.id.movie_age)
+    private val movieRating:RatingBar = view.findViewById(R.id.movie_rating)
+    private val movieReview:TextView = view.findViewById(R.id.review)
+    private val movieGenre:TextView = view.findViewById(R.id.genre)
+    private val movieName:TextView = view.findViewById(R.id.movie_name)
+    private val movieDuration:TextView = view.findViewById(R.id.movie_min)
+    private val movieFavorites:ImageView = view.findViewById(R.id.movie_favorites)
 
     fun bind(movie: Movie){
-        movieName?.text = movie.name
-        movieAge?.text = movie.age
-        movieRating?.rating = movie.rating
-        movieReview?.text = movie.reviews
-        movieGenre?.text = movie.genre
-        movieDuration?.text = movie.duration
-        movieImage?.setImageResource(movie.poster)
+        movieName.text = movie.name
+        movieAge.text = movie.age
+        movieRating.rating = movie.rating
+        movieReview.text = movie.reviews
+        movieGenre.text = movie.genre
+        movieDuration.text = movie.duration
+        movieImage.setImageResource(movie.poster)
         if (movie.favorite)
-            movieFavorites?.setImageResource(R.drawable.ic_like_positive)
+            movieFavorites.setImageResource(R.drawable.ic_like_positive)
         else
-            movieFavorites?.setImageResource(R.drawable.ic_like)
+            movieFavorites.setImageResource(R.drawable.ic_like)
 
     }
 
 }
 
 interface OnClickItemListener{
-    fun onClick(movie:Movie)
+    fun onClick(movie: Movie)
 }

@@ -26,9 +26,8 @@ class FragmentMoviesDetails : Fragment() {
             View? = inflater.inflate(R.layout.fragment_movies_details, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         val movie:Movie? = arguments?.getSerializable(fragmentDetailsTag) as Movie
-        fillData(movie, view)
+        findViews(movie, view)
 
         recyclerView = view.findViewById(R.id.actors_list)
         recyclerView?.adapter = ActorAdapter(movie?.actors!!)
@@ -36,7 +35,7 @@ class FragmentMoviesDetails : Fragment() {
     }
 
 
-    private fun fillData(movie: Movie?, view:View){
+    private fun findViews(movie: Movie?, view:View){
         nameText = view.findViewById(R.id.name)
         nameText?.text = movie?.name
         ageText = view.findViewById(R.id.age_limit)

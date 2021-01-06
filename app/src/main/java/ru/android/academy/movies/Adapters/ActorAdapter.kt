@@ -10,10 +10,8 @@ import com.squareup.picasso.Picasso
 import ru.android.academy.movies.Models.Actor
 import ru.android.academy.movies.R
 
-class ActorAdapter(private var actors:List<Actor>): RecyclerView.Adapter<ActorViewHolder>() {
+class ActorAdapter(private var actors: List<Actor>): RecyclerView.Adapter<ActorViewHolder>() {
 
-
-  //  private var actors = listOf<Actor>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActorViewHolder {
         return ActorViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_holder_actor, parent,false))
@@ -25,18 +23,14 @@ class ActorAdapter(private var actors:List<Actor>): RecyclerView.Adapter<ActorVi
        holder.bind(actors[position])
     }
 
-//    fun setActors(newactors:List<Actor>){
-//        actors = newactors
-//        notifyDataSetChanged()
-//    }
 }
 
-class ActorViewHolder(view: View):RecyclerView.ViewHolder(view) {
+class ActorViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     private var actorImage:ImageView? = view.findViewById(R.id.image_item)
-    private var actorText:TextView? = view.findViewById(R.id.actor_text)
+    private val actorText:TextView = view.findViewById(R.id.actor_text)
 
-    fun bind(actor:Actor){
+    fun bind(actor: Actor){
 
         Picasso.get()
                .load(actor.avatar)
@@ -44,7 +38,7 @@ class ActorViewHolder(view: View):RecyclerView.ViewHolder(view) {
                .error(R.drawable.actor_placeholder)
                .into(actorImage)
 
-        actorText?.text = actor.name
+        actorText.text = actor.name
     }
 
 }

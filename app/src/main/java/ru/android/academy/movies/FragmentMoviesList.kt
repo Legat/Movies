@@ -44,25 +44,29 @@ class FragmentMoviesList : Fragment() {
         recycler = view.findViewById(R.id.list_movie)
         recycler?.adapter = MovieAdapter()
 
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
-        recycler?.layoutManager = GridLayoutManager(context,2)
-        else
-        recycler?.layoutManager = GridLayoutManager(context,3)
-
-    }
-
-    override fun onStart() {
-        super.onStart()
         (recycler?.adapter as? MovieAdapter)?.apply {
             setData(MovieSource().getMovie())
             setItemListener(onClickItemListener)
         }
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            recycler?.layoutManager = GridLayoutManager(context, 2)
+        }
+        else {
+        recycler?.layoutManager = GridLayoutManager(context,3)
+        }
+
     }
+
 
 
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
         recycler = null
     }
 
