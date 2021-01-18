@@ -1,17 +1,30 @@
 package ru.android.academy.movies
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import ru.android.academy.movies.Adapters.MovieAdapter
+import ru.android.academy.movies.Adapters.OnClickItemListener
+import ru.android.academy.movies.Models.Movie
+import ru.android.academy.movies.Models.MovieSource
 
 class FragmentMoviesList : Fragment() {
 
     private var listener:FragmentListener? = null
-    private var movieItem:CardView? = null
+
+    private var recycler:RecyclerView? = null
+
+    private val onClickItemListener = object : OnClickItemListener {
+        override fun onClick(movie: Movie) {
+            listener?.openMoviesDetailsScreen(movie)
+        }
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -28,10 +41,23 @@ class FragmentMoviesList : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        movieItem = view.findViewById<CardView>(R.id.cardMovie).apply{
-        setOnClickListener { listener?.openMoviesDetailsScreen() }
+        recycler = view.findViewById(R.id.list_movie)
+        recycler?.adapter = MovieAdapter()
+
+        (recycler?.adapter as? MovieAdapter)?.apply {
+            setData(MovieSource().getMovie())
+            setItemListener(onClickItemListener)
         }
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            recycler?.layoutManager = GridLayoutManager(context, 2)
+        }
+        else {
+        recycler?.layoutManager = GridLayoutManager(context,3)
+        }
+
     }
+
 
 
     override fun onDetach() {
@@ -39,9 +65,14 @@ class FragmentMoviesList : Fragment() {
         listener = null
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        recycler = null
+    }
+
 
     interface FragmentListener{
-        fun openMoviesDetailsScreen()
+        fun openMoviesDetailsScreen(movie:Movie)
     }
 
 
