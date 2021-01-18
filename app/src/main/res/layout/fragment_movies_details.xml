@@ -17,9 +17,9 @@
 
     <ImageView
             android:id="@+id/movie_pic"
-            android:src="@drawable/avengers"
+            tools:src="@drawable/avengers"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="290dp"
             android:scaleType="fitXY"
             android:contentDescription="@string/movie_content_description"
             app:layout_constraintEnd_toEndOf="parent"
@@ -129,7 +129,7 @@
     <TextView
             android:id="@+id/description"
             style="@style/DetailMoviesText"
-            android:text="@string/movie_description"
+            tools:text="@string/movie_description"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             app:layout_constraintStart_toStartOf="parent"

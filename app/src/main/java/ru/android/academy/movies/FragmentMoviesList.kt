@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.*
 import ru.android.academy.movies.Adapters.MovieAdapter
 import ru.android.academy.movies.Adapters.OnClickItemListener
+import ru.android.academy.movies.Data.loadMovies
 import ru.android.academy.movies.Models.Movie
-import ru.android.academy.movies.Models.MovieSource
+
 
 class FragmentMoviesList : Fragment() {
 
@@ -20,9 +22,11 @@ class FragmentMoviesList : Fragment() {
 
     private var recycler:RecyclerView? = null
 
+    private val scope = CoroutineScope(Dispatchers.Main)
+
     private val onClickItemListener = object : OnClickItemListener {
-        override fun onClick(movie: Movie) {
-            listener?.openMoviesDetailsScreen(movie)
+        override fun onClick(id: Int) {
+            listener?.openMoviesDetailsScreen(id)
         }
     }
 
@@ -44,10 +48,7 @@ class FragmentMoviesList : Fragment() {
         recycler = view.findViewById(R.id.list_movie)
         recycler?.adapter = MovieAdapter()
 
-        (recycler?.adapter as? MovieAdapter)?.apply {
-            setData(MovieSource().getMovie())
-            setItemListener(onClickItemListener)
-        }
+
 
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             recycler?.layoutManager = GridLayoutManager(context, 2)
@@ -56,6 +57,18 @@ class FragmentMoviesList : Fragment() {
         recycler?.layoutManager = GridLayoutManager(context,3)
         }
 
+        setMovies()
+
+    }
+
+    private fun setMovies(){
+        scope.launch {
+        val movies:List<Movie> = loadMovies(requireContext())
+        (recycler?.adapter as? MovieAdapter)?.apply {
+            setData(movies)
+            setItemListener(onClickItemListener)
+        }
+        }
     }
 
 
@@ -72,7 +85,7 @@ class FragmentMoviesList : Fragment() {
 
 
     interface FragmentListener{
-        fun openMoviesDetailsScreen(movie:Movie)
+        fun openMoviesDetailsScreen(id: Int)
     }
 
 

@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity(), FragmentMoviesList.FragmentListener {
         }
     }
 
-    override fun openMoviesDetailsScreen(movie:Movie) {
+    override fun openMoviesDetailsScreen(id: Int) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FragmentMoviesDetails.newInstance(movie))
+            .replace(R.id.container, FragmentMoviesDetails.newInstance(id))
             .addToBackStack(null)
             .commit()
     }

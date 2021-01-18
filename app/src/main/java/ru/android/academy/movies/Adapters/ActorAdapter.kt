@@ -27,13 +27,13 @@ class ActorAdapter(private var actors: List<Actor>): RecyclerView.Adapter<ActorV
 
 class ActorViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
-    private var actorImage:ImageView? = view.findViewById(R.id.image_item)
+    private val actorImage:ImageView = view.findViewById(R.id.image_item)
     private val actorText:TextView = view.findViewById(R.id.actor_text)
 
     fun bind(actor: Actor){
 
         Picasso.get()
-               .load(actor.avatar)
+               .load(actor.profile_path)
                .placeholder(R.drawable.actor_placeholder)
                .error(R.drawable.actor_placeholder)
                .into(actorImage)
