@@ -8,7 +8,6 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import ru.android.academy.movies.Models.Genre
 import ru.android.academy.movies.Models.Movie
 import ru.android.academy.movies.R
 
@@ -73,12 +72,7 @@ class MovieViewHolder(view: View): RecyclerView.ViewHolder(view){
           movieRating.rating = movie.rating.toFloat()
           movieReview.text = itemView.context.getString(R.string.movie_reviews, movie.reviewCount)
 
-          val genres:List<Genre> = movie.genres
-          var genre = ""
-          genres.forEach {
-              genre = genre + it.name + " ,"
-          }
-          movieGenre.text = genre.dropLast(1)
+          movieGenre.text = movie.genres.joinToString{ it.name}
 
           movieDuration.text = itemView.context.getString(R.string.movie_time, movie.runningTime)
 

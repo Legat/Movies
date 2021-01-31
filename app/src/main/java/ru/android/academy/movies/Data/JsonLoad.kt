@@ -102,10 +102,10 @@ internal suspend fun getMovieById(id: Int?, context: Context) : Movie = withCont
 }
 
 private fun filterId(id:Int?, movies:List<Movie>):Movie{
-    movies.filter {
+    val filterMovie = movies.filter {
         it.id == id
     }
-    return movies[0]
+    return filterMovie[0]
 }
 
 private fun <T : Any> T?.orThrow(createThrowable: () -> Throwable): T {

@@ -35,53 +35,45 @@ class FragmentMoviesDetails : Fragment() {
             View? = inflater.inflate(R.layout.fragment_movies_details, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        findViews(view)
         val id: Int? = arguments?.getInt(fragmentDetailsTag)
-
-        getMovie(id, view)
-
-
+        getMovie(id)
     }
 
 
-    private fun findViews(movie: Movie?, view:View){
-       detailImage = view.findViewById(R.id.movie_pic)
+    private fun findViews(view:View){
+        detailImage = view.findViewById(R.id.movie_pic)
+        nameText = view.findViewById(R.id.name)
+        ageText = view.findViewById(R.id.age_limit)
+        genreText = view.findViewById(R.id.genre)
+        ratingRating = view.findViewById(R.id.ratingBar)
+        reviewsText = view.findViewById(R.id.reviews)
+        detailDescription = view.findViewById(R.id.description)
+        recyclerView = view.findViewById(R.id.actors_list)
+    }
 
+    private fun getMovie(id:Int?){
+        scope.launch {
+            val movie:Movie = getMovieById(id, requireContext())
+            setMovie(movie)
+        }
+    }
+
+    private fun setMovie(movie: Movie) {
         Picasso.get()
-            .load(movie?.detailImageUrl)
+            .load(movie.detailImageUrl)
             .placeholder(R.drawable.actor_placeholder)
             .error(R.drawable.actor_placeholder)
             .into(detailImage)
 
-
-        nameText = view.findViewById(R.id.name)
-        nameText?.text = movie?.title
-        ageText = view.findViewById(R.id.age_limit)
-        ageText?.text = context?.getString(R.string.movie_age, movie?.pgAge)
-        genreText = view.findViewById(R.id.genre)
-        var genre = ""
-        movie?.genres?.forEach {
-            genre = genre + it.name + " ,"
-        }
-        genreText?.text = genre.dropLast(1)
-
-        ratingRating = view.findViewById(R.id.ratingBar)
-        ratingRating?.rating = movie?.rating?.toFloat()!!
-        reviewsText = view.findViewById(R.id.reviews)
+        nameText?.text = movie.title
+        ageText?.text = context?.getString(R.string.movie_age, movie.pgAge)
+        genreText?.text = movie.genres.joinToString { it.name }
+        ratingRating?.rating = movie.rating.toFloat()
         reviewsText?.text = context?.getString(R.string.movie_reviews, movie.reviewCount)
-        detailDescription = view.findViewById(R.id.description)
         detailDescription?.text = movie.storyLine
-
-        recyclerView = view.findViewById(R.id.actors_list)
         recyclerView?.adapter = ActorAdapter(movie.actors)
-        recyclerView?.layoutManager = LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
-    }
-
-    private fun getMovie(id:Int?, view: View){
-        scope.launch {
-            val movie:Movie = getMovieById(id, requireContext())
-            findViews(movie, view)
-        }
-
+        recyclerView?.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
     }
 
 

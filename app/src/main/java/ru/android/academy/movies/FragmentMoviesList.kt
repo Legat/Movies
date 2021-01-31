@@ -18,9 +18,9 @@ import ru.android.academy.movies.Models.Movie
 
 class FragmentMoviesList : Fragment() {
 
-    private var listener:FragmentListener? = null
+    private var listener: FragmentListener? = null
 
-    private var recycler:RecyclerView? = null
+    private var recycler: RecyclerView? = null
 
     private val scope = CoroutineScope(Dispatchers.Main)
 
@@ -32,15 +32,16 @@ class FragmentMoviesList : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is FragmentListener){
+        if (context is FragmentListener) {
             listener = context
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?
-    ):View? = inflater.inflate(R.layout.fragment_movies_list, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_movies_list, container, false)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,30 +49,24 @@ class FragmentMoviesList : Fragment() {
         recycler = view.findViewById(R.id.list_movie)
         recycler?.adapter = MovieAdapter()
 
-
-
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             recycler?.layoutManager = GridLayoutManager(context, 2)
-        }
-        else {
-        recycler?.layoutManager = GridLayoutManager(context,3)
+        } else {
+            recycler?.layoutManager = GridLayoutManager(context, 3)
         }
 
         setMovies()
-
     }
 
-    private fun setMovies(){
+    private fun setMovies() {
         scope.launch {
-        val movies:List<Movie> = loadMovies(requireContext())
-        (recycler?.adapter as? MovieAdapter)?.apply {
-            setData(movies)
-            setItemListener(onClickItemListener)
-        }
+            val movies: List<Movie> = loadMovies(requireContext())
+            (recycler?.adapter as? MovieAdapter)?.apply {
+                setData(movies)
+                setItemListener(onClickItemListener)
+            }
         }
     }
-
-
 
     override fun onDetach() {
         super.onDetach()
@@ -83,8 +78,7 @@ class FragmentMoviesList : Fragment() {
         recycler = null
     }
 
-
-    interface FragmentListener{
+    interface FragmentListener {
         fun openMoviesDetailsScreen(id: Int)
     }
 
