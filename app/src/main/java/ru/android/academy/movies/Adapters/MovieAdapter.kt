@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import ru.android.academy.movies.Models.Movie
 import ru.android.academy.movies.R
 
@@ -19,7 +20,7 @@ class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(movies[position])
         holder.itemView.setOnClickListener {
-            onClickItemListener?.onClick(movies[position])
+            onClickItemListener?.onClick(movies[position].id)
         }
     }
 
@@ -57,23 +58,36 @@ class MovieViewHolder(view: View): RecyclerView.ViewHolder(view){
     private val movieDuration:TextView = view.findViewById(R.id.movie_min)
     private val movieFavorites:ImageView = view.findViewById(R.id.movie_favorites)
 
+
     fun bind(movie: Movie){
-        movieName.text = movie.name
-        movieAge.text = movie.age
-        movieRating.rating = movie.rating
-        movieReview.text = movie.reviews
-        movieGenre.text = movie.genre
-        movieDuration.text = movie.duration
-        movieImage.setImageResource(movie.poster)
-        if (movie.favorite)
+
+        Picasso.get()
+            .load(movie.imageUrl)
+            .placeholder(R.drawable.actor_placeholder)
+            .error(R.drawable.actor_placeholder)
+            .into(movieImage)
+
+          movieName.text = movie.title
+          movieAge.text = itemView.context.getString(R.string.movie_age, movie.pgAge)
+          movieRating.rating = movie.rating.toFloat()
+          movieReview.text = itemView.context.getString(R.string.movie_reviews, movie.reviewCount)
+
+          movieGenre.text = movie.genres.joinToString{ it.name}
+
+          movieDuration.text = itemView.context.getString(R.string.movie_time, movie.runningTime)
+
+
+        if (movie.isLiked) {
             movieFavorites.setImageResource(R.drawable.ic_like_positive)
-        else
+        }
+        else {
             movieFavorites.setImageResource(R.drawable.ic_like)
+        }
 
     }
 
 }
 
 interface OnClickItemListener{
-    fun onClick(movie: Movie)
+    fun onClick(id: Int)
 }

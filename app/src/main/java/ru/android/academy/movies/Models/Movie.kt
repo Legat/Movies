@@ -1,17 +1,20 @@
 package ru.android.academy.movies.Models
 
-import android.annotation.SuppressLint
-import androidx.annotation.DrawableRes
+
 import java.io.Serializable
 
-data class Movie (
-    val name:String,
-    val age:String,
-    @SuppressLint("SupportAnnotationUsage") @DrawableRes
-    val poster:Int,
-    val actors:List<Actor>,
-    val favorite:Boolean,
-    val genre:String,
-    val rating:Float,
-    val reviews:String,
-    val duration:String) : Serializable
+
+data class Movie(
+    val id: Int,
+    val pgAge: Int,
+    val title: String,
+    val genres: List<Genre>,
+    val runningTime: Int,
+    val reviewCount: Int,
+    val isLiked: Boolean,
+    val rating: Int,
+    val imageUrl: String,
+    val detailImageUrl: String,
+    val storyLine: String,
+    val actors: List<Actor>
+    ) : Serializable
