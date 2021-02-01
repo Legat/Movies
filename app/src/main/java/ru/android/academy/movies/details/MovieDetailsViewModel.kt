@@ -17,10 +17,7 @@ class MovieDetailsViewModel : ViewModel() {
 
     fun getMovie(id: Int?, context: Context) {
         viewModelScope.launch {
-
-            val movieSource = MovieSource()
-            val movie: Movie = movieSource.getMovie(id, context)
-
+            val movie: Movie = MovieSource().getMovie(id, context)
             _mutableMovieDetails.setValue(movie)
         }
 

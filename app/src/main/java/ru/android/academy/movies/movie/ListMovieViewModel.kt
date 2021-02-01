@@ -17,8 +17,7 @@ class ListMovieViewModel : ViewModel() {
 
     fun addMovies(context: Context) {
         viewModelScope.launch {
-            val moviesSource = MovieSource()
-            val movies: List<Movie> = moviesSource.getMovies(context)
+            val movies: List<Movie> = MovieSource().getMovies(context)
             _mutableMovieList.setValue(movies)
         }
     }
