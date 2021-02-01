@@ -2,8 +2,8 @@ package ru.android.academy.movies
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import ru.android.academy.movies.Adapters.OnClickItemListener
-import ru.android.academy.movies.Models.Movie
+import ru.android.academy.movies.details.FragmentMoviesDetails
+import ru.android.academy.movies.movie.FragmentMoviesList
 
 
 class MainActivity : AppCompatActivity(), FragmentMoviesList.FragmentListener {
