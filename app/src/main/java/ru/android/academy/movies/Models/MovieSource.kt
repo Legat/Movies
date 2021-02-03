@@ -4,7 +4,7 @@ import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ru.android.academy.movies.Data.loadMovies
-import ru.android.academy.movies.R
+import ru.android.academy.movies.Data.getMovieById
 
 
 class MovieSource {
@@ -13,7 +13,7 @@ class MovieSource {
        loadMovies(context)
     }
 
-    suspend fun getMovieById(id:Int, context:Context) : Movie = withContext(Dispatchers.IO){
+    suspend fun getMovie(id:Int?, context:Context) : Movie = withContext(Dispatchers.IO){
         getMovieById(id, context)
     }
 }
