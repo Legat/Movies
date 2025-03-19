@@ -45,7 +45,7 @@ class FragmentMoviesDetails : Fragment() {
 
 
     private fun findViews(view: View) {
-        detailImage = view.findViewById(R.id.movie_pic) 
+        detailImage = view.findViewById(R.id.movie_pic)
         nameText = view.findViewById(R.id.name)
         ageText = view.findViewById(R.id.age_limit)
         genreText = view.findViewById(R.id.genre)
