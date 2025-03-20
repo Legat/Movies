@@ -57,7 +57,6 @@ class FragmentMoviesDetails : Fragment() {
 
 
     private fun setMovie(movie: Movie) {
-        // test comment
         Picasso.get()
             .load(movie.detailImageUrl)
             .placeholder(R.drawable.actor_placeholder)
