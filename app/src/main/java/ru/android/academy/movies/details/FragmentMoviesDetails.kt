@@ -40,7 +40,7 @@ class FragmentMoviesDetails : Fragment() {
         viewModel.movieDetails.observe(this.viewLifecycleOwner, this::setMovie)
 
         viewModel.getMovie(id, requireContext())
-
+        // tam
     }
 
 
